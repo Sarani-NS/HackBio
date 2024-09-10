@@ -8,7 +8,7 @@ Download the dataset by right-clicking and choosing "Save As" (make sure it's sa
 Load the dataset: Import it into your chosen tool (e.g., Python with Pandas, R, Excel). ✅ (done on R on my side)
 
 Clean the data: Check for missing values, duplicate rows, or inconsistencies. ✅
-There are NAs, written in 2 different ways so detected differently I guess (N\A and NA). Duplicate rows were handled. Didn't see inconsistencies but doesn't mean there aren't any.
+There are NAs, written in 2 different ways so detected differently I guess (N\A and NA). Duplicate rows were handled. Some inconsistencies are: y or Yes used, ? or unknown as well. Proposal: choose one and replace them everywhere.
 
 Handle missing data by either filling in values or removing those records.
 
