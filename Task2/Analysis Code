@@ -1,1 +1,21 @@
+# Data Pre-Processing
 
+data <- read.delim("C:/Users/sante/Desktop/WHO_AMR_PRODUCTS_DATA.tsv.txt",sep="\t")
+data
+summary(data)
+
+# Find duplicate rows
+
+duplicates <- data[duplicated(data), ]
+
+# Remove duplicate rows
+
+data <- data[!duplicated(data), ]
+
+# Check for missing values in each column
+
+colSums(is.na(data))
+
+# To get the rows with missing values:
+
+missing_data <- data[!complete.cases(data), ]
