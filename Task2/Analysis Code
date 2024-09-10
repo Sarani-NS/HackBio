@@ -81,3 +81,22 @@ data$Clostridioides.difficile <- replace_na_na_with_value(data$Clostridioides.di
 
 # Check updated data
 print(data)
+
+# Function to get the type of each unique value in a column
+get_unique_value_types <- function(column) {
+  unique_values <- unique(column)
+  value_types <- sapply(unique_values, function(x) class(x))
+  return(value_types)
+}
+
+# Apply the function to each column
+unique_value_types <- lapply(data, get_unique_value_types)
+
+# Print the types of unique values for each column
+for (col_name in names(unique_value_types)) {
+  cat("\nColumn:", col_name, "\n")
+  print(unique_value_types[[col_name]])
+}
+
+# Convert Date.of.update column to Date type
+data$Date.of.update <- as.Date(data$Date.of.update, format="%b-%y")
