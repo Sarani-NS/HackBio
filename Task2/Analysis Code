@@ -2,28 +2,51 @@
 
 library(dplyr)
 
-data <- read.delim("C:/Users/sante/Desktop/WHO_AMR_PRODUCTS_DATA.tsv.txt",sep="\t")
+data <- read.delim("C:/Users/sante/Desktop/WHO_AMR_PRODUCTS_DATA.tsv",sep="\t")
 data
 summary(data)
-
 # Obtain unique values for each column
-
 unique_values <- lapply(data, unique)
 
 # Print unique values for each column
-
 print(unique_values)
 
-# Find duplicate rows
+# Create a new column by combining Product.name and Non.traditionals.categories
+data$Combined.Categories <- ifelse(is.na(data$Non.traditionals.categories),
+                                    data$Product.name,
+                                    data$Non.traditionals.categories)
 
+# Replace "NA" values in Combined.Categories with "Antibiotics"
+data$Combined.Categories[is.na(data$Combined.Categories)] <- "Antibiotics"
+
+# Remove the old columns
+data$Product.name <- NULL
+data$Non.traditionals.categories <- NULL
+
+# Function to get the type of each unique value in a column
+get_unique_value_types <- function(column) {
+  unique_values <- unique(column)
+  value_types <- sapply(unique_values, function(x) class(x))
+  return(value_types)
+}
+
+# Apply the function to each column
+unique_value_types <- lapply(data, get_unique_value_types)
+
+# Print the types of unique values for each column
+for (col_name in names(unique_value_types)) {
+  cat("\nColumn:", col_name, "\n")
+  print(unique_value_types[[col_name]])
+}
+
+# Find duplicate rows
 duplicates <- data[duplicated(data), ]
 
 # Remove duplicate rows
-
 data <- data[!duplicated(data), ]
 
-# Function to replace specific values with standardized values
 
+# Function to replace specific values with standardized values
 standardize_values <- function(column) {
   column <- as.character(column)  # Ensure the column is treated as character type
   column <- ifelse(column %in% c("y"), "Yes", column)
@@ -35,19 +58,15 @@ standardize_values <- function(column) {
 }
 
 # Replace empty strings with NA
-
 data[data == ""] <- NA
 
 # Apply the standardization function to all columns
-
 data <- data %>% mutate(across(everything(), standardize_values))
 
 # Check updated data
-
 print(data)
 
 # Function to replace NA with a specified value
-
 replace_na_na_with_value <- function(column, replacement) {
   column <- ifelse(column %in% c(NA), replacement, column)
   return(column)
@@ -57,9 +76,6 @@ replace_na_na_with_value <- function(column, replacement) {
 
 # 1. Alternative name
 data$Alternative.name <- replace_na_na_with_value(data$Alternative.name, "None")
-
-# 2. Non.traditionals.categories
-data$Non.traditionals.categories <- replace_na_na_with_value(data$Non.traditionals.categories, "Unknown")
 
 # 3. Pathogen.activity
 data$Pathogen.activity <- replace_na_na_with_value(data$Pathogen.activity, "Other priority pathogens")
@@ -82,21 +98,7 @@ data$Clostridioides.difficile <- replace_na_na_with_value(data$Clostridioides.di
 # Check updated data
 print(data)
 
-# Function to get the type of each unique value in a column
-get_unique_value_types <- function(column) {
-  unique_values <- unique(column)
-  value_types <- sapply(unique_values, function(x) class(x))
-  return(value_types)
-}
+data
 
-# Apply the function to each column
-unique_value_types <- lapply(data, get_unique_value_types)
-
-# Print the types of unique values for each column
-for (col_name in names(unique_value_types)) {
-  cat("\nColumn:", col_name, "\n")
-  print(unique_value_types[[col_name]])
-}
-
-# Convert Date.of.update column to Date type
-data$Date.of.update <- as.Date(data$Date.of.update, format="%b-%y")
+# Save the cleaned data to a new TSV file
+write.table(data, file = "cleaned_data.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
