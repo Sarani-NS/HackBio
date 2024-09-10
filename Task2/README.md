@@ -10,7 +10,8 @@ Load the dataset: Import it into your chosen tool (e.g., Python with Pandas, R, 
 Clean the data: Check for missing values, duplicate rows, or inconsistencies. ✅
 There are NAs, written in 2 different ways so detected differently I guess (N\A and NA). Duplicate rows were handled. Some inconsistencies are: y or Yes used, ? or unknown as well. Proposal: choose one and replace them everywhere.
 
-Handle missing data by either filling in values or removing those records.
+Handle missing data by either filling in values or removing those records. ✅
+No data was removed. Filled with None.
 
 Ensure that the data types for each column are correct (e.g., dates as datetime, numeric values for counts, etc.).
 
