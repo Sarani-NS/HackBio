@@ -1,8 +1,18 @@
-# Data Pre-Processing
+# Load necessary libraries
+
+library(dplyr)
 
 data <- read.delim("C:/Users/sante/Desktop/WHO_AMR_PRODUCTS_DATA.tsv.txt",sep="\t")
 data
 summary(data)
+
+# Obtain unique values for each column
+
+unique_values <- lapply(data, unique)
+
+# Print unique values for each column
+
+print(unique_values)
 
 # Find duplicate rows
 
@@ -12,10 +22,62 @@ duplicates <- data[duplicated(data), ]
 
 data <- data[!duplicated(data), ]
 
-# Check for missing values in each column
+# Function to replace specific values with standardized values
 
-colSums(is.na(data))
+standardize_values <- function(column) {
+  column <- as.character(column)  # Ensure the column is treated as character type
+  column <- ifelse(column %in% c("y"), "Yes", column)
+  column <- ifelse(column %in% c("-", "—"), "None", column)
+  column <- ifelse(column %in% c("?"), "Unknown", column)
+  column <- ifelse(column %in% c("N/A"), NA, column)
+  
+  return(column)
+}
 
-# To get the rows with missing values:
+# Replace empty strings with NA
 
-missing_data <- data[!complete.cases(data), ]
+data[data == ""] <- NA
+
+# Apply the standardization function to all columns
+
+data <- data %>% mutate(across(everything(), standardize_values))
+
+# Check updated data
+
+print(data)
+
+# Function to replace NA with a specified value
+
+replace_na_na_with_value <- function(column, replacement) {
+  column <- ifelse(column %in% c(NA), replacement, column)
+  return(column)
+}
+
+# Handling missing values for each column:
+
+# 1. Alternative name
+data$Alternative.name <- replace_na_na_with_value(data$Alternative.name, "None")
+
+# 2. Non.traditionals.categories
+data$Non.traditionals.categories <- replace_na_na_with_value(data$Non.traditionals.categories, "Unknown")
+
+# 3. Pathogen.activity
+data$Pathogen.activity <- replace_na_na_with_value(data$Pathogen.activity, "Other priority pathogens")
+
+# 4. Active.against.priority.pathogens.
+data$Active.against.priority.pathogens. <- replace_na_na_with_value(data$Active.against.priority.pathogens., "No")
+
+# 5. Innovative.
+data$Innovative. <- replace_na_na_with_value(data$Innovative., "No")
+
+# 6. NCE.
+data$NCE. <- replace_na_na_with_value(data$NCE., "No")
+
+# 7. Mycobacterium.tuberculosis
+data$Mycobacterium.tuberculosis <- replace_na_na_with_value(data$Mycobacterium.tuberculosis, "No")
+
+# 8. Clostridioides.difficile
+data$Clostridioides.difficile <- replace_na_na_with_value(data$Clostridioides.difficile, "Unknown")
+
+# Check updated data
+print(data)
