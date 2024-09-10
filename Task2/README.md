@@ -2,14 +2,16 @@
 
 **1. Download the AMR Products Dataset**
 Go to this link.
-Download the dataset by right-clicking and choosing "Save As" (make sure it's saved as a .tsv file).
+Download the dataset by right-clicking and choosing "Save As" (make sure it's saved as a .tsv file). ✅
 
 **2. Data Cleaning and Preprocessing**
-Load the dataset: Import it into your chosen tool (e.g., Python with Pandas, R, Excel).
+Load the dataset: Import it into your chosen tool (e.g., Python with Pandas, R, Excel). ✅ (done on R on my side)
 
-Clean the data: Check for missing values, duplicate rows, or inconsistencies.
+Clean the data: Check for missing values, duplicate rows, or inconsistencies. ✅
+There are NAs, written in 2 different ways so detected differently I guess (N\A and NA). Duplicate rows were handled. Didn't see inconsistencies but doesn't mean there aren't any.
 
 Handle missing data by either filling in values or removing those records.
+
 Ensure that the data types for each column are correct (e.g., dates as datetime, numeric values for counts, etc.).
 
 **3. Statistical Analysis:**
