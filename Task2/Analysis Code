@@ -12,12 +12,12 @@ unique_values <- lapply(data, unique)
 print(unique_values)
 
 # Create a new column by combining Product.name and Non.traditionals.categories
-data$Combined.Categories <- ifelse(is.na(data$Non.traditionals.categories),
+data$Product.name.merged <- ifelse(is.na(data$Non.traditionals.categories),
                                     data$Product.name,
                                     data$Non.traditionals.categories)
 
 # Replace "NA" values in Combined.Categories with "Antibiotics"
-data$Combined.Categories[is.na(data$Combined.Categories)] <- "Antibiotics"
+data$Product.name.merged[is.na(data$Product.name.merged)] <- "Antibiotics"
 
 # Remove the old columns
 data$Product.name <- NULL
@@ -38,6 +38,13 @@ for (col_name in names(unique_value_types)) {
   cat("\nColumn:", col_name, "\n")
   print(unique_value_types[[col_name]])
 }
+
+# Add "01 " at the start of each value in the Date.of.update column
+data$Date.of.update <- paste0("01 ", data$Date.of.update)
+
+# Convert the updated Date.of.update column to Date format
+# The format is day (%d), abbreviated month (%b), and two-digit year (%y)
+data$Date.of.update <- as.Date(data$Date.of.update, format = "%d %b-%y")
 
 # Find duplicate rows
 duplicates <- data[duplicated(data), ]
