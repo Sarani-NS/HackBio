@@ -13,7 +13,7 @@ There are NAs, written in 2 different ways so detected differently I guess (N\A 
 Handle missing data by either filling in values or removing those records. ✅
 No data was removed. Filled with None.
 
-Ensure that the data types for each column are correct (e.g., dates as datetime, numeric values for counts, etc.).
+Ensure that the data types for each column are correct (e.g., dates as datetime, numeric values for counts, etc.). ✅
 
 **3. Statistical Analysis:**
 Perform basic descriptive statistics (e.g., counts, averages).
