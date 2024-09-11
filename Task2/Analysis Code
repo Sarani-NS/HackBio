@@ -1,23 +1,34 @@
 # Load necessary libraries
-
 library(dplyr)
+library(data.table)
 
 data <- read.delim("C:/Users/sante/Desktop/WHO_AMR_PRODUCTS_DATA.tsv",sep="\t")
 data
+
 summary(data)
+
 # Obtain unique values for each column
 unique_values <- lapply(data, unique)
 
 # Print unique values for each column
 print(unique_values)
 
+# I gave up on it, should fix it
+
+# Step 1: Add "01 " at the start of each value in the Date.of.update column
+#data$Date.of.update <- paste0("01 ", data$Date.of.update)
+
+# Step 2: Convert the updated Date.of.update column to Date format
+# The format is day (%d), abbreviated month (%b), and two-digit year (%y)
+# data$Date.of.update <- as.Date(data$Date.of.update, format = "%d %b %y")
+
 # Create a new column by combining Product.name and Non.traditionals.categories
-data$Product.name.merged <- ifelse(is.na(data$Non.traditionals.categories),
+data$Combined.Categories <- ifelse(is.na(data$Non.traditionals.categories),
                                     data$Product.name,
                                     data$Non.traditionals.categories)
 
 # Replace "NA" values in Combined.Categories with "Antibiotics"
-data$Product.name.merged[is.na(data$Product.name.merged)] <- "Antibiotics"
+data$Combined.Categories[is.na(data$Combined.Categories)] <- "Antibiotics"
 
 # Remove the old columns
 data$Product.name <- NULL
@@ -39,19 +50,11 @@ for (col_name in names(unique_value_types)) {
   print(unique_value_types[[col_name]])
 }
 
-# Add "01 " at the start of each value in the Date.of.update column
-data$Date.of.update <- paste0("01 ", data$Date.of.update)
-
-# Convert the updated Date.of.update column to Date format
-# The format is day (%d), abbreviated month (%b), and two-digit year (%y)
-data$Date.of.update <- as.Date(data$Date.of.update, format = "%d %b-%y")
-
 # Find duplicate rows
 duplicates <- data[duplicated(data), ]
 
 # Remove duplicate rows
 data <- data[!duplicated(data), ]
-
 
 # Function to replace specific values with standardized values
 standardize_values <- function(column) {
@@ -84,28 +87,29 @@ replace_na_na_with_value <- function(column, replacement) {
 # 1. Alternative name
 data$Alternative.name <- replace_na_na_with_value(data$Alternative.name, "None")
 
-# 3. Pathogen.activity
+# 2. Pathogen.activity
 data$Pathogen.activity <- replace_na_na_with_value(data$Pathogen.activity, "Other priority pathogens")
 
-# 4. Active.against.priority.pathogens.
+# 3. Active.against.priority.pathogens.
 data$Active.against.priority.pathogens. <- replace_na_na_with_value(data$Active.against.priority.pathogens., "No")
 
-# 5. Innovative.
+# 4. Innovative.
 data$Innovative. <- replace_na_na_with_value(data$Innovative., "No")
 
-# 6. NCE.
+# 5. NCE.
 data$NCE. <- replace_na_na_with_value(data$NCE., "No")
 
-# 7. Mycobacterium.tuberculosis
+# 6. Mycobacterium.tuberculosis
 data$Mycobacterium.tuberculosis <- replace_na_na_with_value(data$Mycobacterium.tuberculosis, "No")
 
-# 8. Clostridioides.difficile
+# 7. Clostridioides.difficile
 data$Clostridioides.difficile <- replace_na_na_with_value(data$Clostridioides.difficile, "Unknown")
 
 # Check updated data
 print(data)
 
-data
+# Write cleaned data in a new .tsv file
+fwrite(data, file = "cleaned_data.tsv", sep = "\t")
 
-# Save the cleaned data to a new TSV file
-write.table(data, file = "cleaned_data.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+data_cleaned <- read.delim("C:/Users/sante/Desktop/cleaned_data.tsv",sep="\t")
+data_cleaned
