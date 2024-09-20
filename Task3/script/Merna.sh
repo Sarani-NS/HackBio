@@ -1,7 +1,7 @@
 mkdir MernaSalem
 mkdir biocomputing ; cd biocomputing
 wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.fna > wildtype.fna ; wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk > wildtype.gbk ; wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk > wildtype.gbk
-mv wildtype.fna /home/merna_admin/Merna
+mv wildtype.fna /home/merna_admin/MernaSalem
 rm wildtype.gbk
 grep -i tatatata wildtype.fna
 grep -i tatatata wildtype.fna.1 > mutant_lines.fna
@@ -11,6 +11,7 @@ sed 1d sequence.fasta | grep -o -i 'A' | wc -l
 sed 1d sequence.fasta | grep -o -i 'G' | wc -l
 sed 1d sequence.fasta | grep -o -i 'C' | wc -l
 sed 1d sequence.fasta | grep -o -i 'T' | wc -l
+
 sudo apt install bc
 
 gc_content=$(sed 1d sequence.fasta | grep -o -i '[GC]' | wc -l)
