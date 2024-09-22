@@ -15,13 +15,13 @@ Haseeb Manzoor1, Yetunde Mary Alo2, Nada ElSayed Ahmed3, Sarani Nativel-Santerne
 
 **Contributors Information**
 
-| Authors | Slack ID | Email |
+| Authors | Slack ID | LinkedIn |
 | :---: | :---: | :---: |
-| 1 | @Seebi  | [haseebmanzoor667@gmail.com](mailto:haseebmanzoor667@gmail.com)  |
-| 2 | @YetQiaM | [aloyetunde99@gmail.com](mailto:aloyetunde99@gmail.com)  |
-| 3 | @Nada\_EA | [n.ahmed.aca@gmail.com](mailto:n.ahmed.aca@gmail.com)  |
-| 4 | @Sarani | [sarani.nativelsanterne@gmail.com](mailto:sarani.nativelsanterne@gmail.com)  |
-| 5 | @Cipher | [hadidyn2013@gmail.com](mailto:hadidyn2013@gmail.com)  |
+| 1 | @Seebi  | https://www.linkedin.com/in/haseebmanzoor |
+| 2 | @YetQiaM | https://www.linkedin.com/in/yetunde-alo-mary |
+| 3 | @Nada\_EA | https://www.linkedin.com/in/nada-elsayed-ahmed |
+| 4 | @Sarani | https://www.linkedin.com/in/sarani-nativel-santerne |
+| 5 | @Cipher | https://www.linkedin.com/in/nada-elhadidy |
 
 **The Analysis codes:**
 
