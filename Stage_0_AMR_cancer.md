@@ -15,4 +15,5 @@ In conclusion, drug resistance in cancer represents a burden in the effective ma
 **Sources:**
 
 https://www.nature.com/articles/nrc3599
+
 https://www.nature.com/articles/s41586-019-1730-1
