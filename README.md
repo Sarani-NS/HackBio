@@ -2,6 +2,8 @@
 
 [Link to the official website](https://thehackbio.com/)
 
+![icon](https://github.com/user-attachments/assets/e5898106-82fb-4b0b-b252-e50282ee5706)
+
 Welcome to my repository for the HackBio Internship 2024, a collaborative and immersive experience aimed at advancing bioinformatics skills through projects using real-world data.
 
 ## About HackBio
