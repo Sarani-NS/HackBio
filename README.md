@@ -52,4 +52,3 @@ Shoutout to all my fellow intern-mates !
 | 4 | Sarani Nativel-Santerne | https://github.com/Sarani-NS | https://www.linkedin.com/in/sarani-nativel-santerne |
 | 5 | Nada ElHadidy |  | https://www.linkedin.com/in/nada-elhadidy |
 | 6 | Merna Salem | https://github.com/MernaSalem | https://www.linkedin.com/in/merna-salem |
-| 7 | Anirudh Bhatia | https://github.com/AnirudhB7 | https://www.linkedin.com/in/anirudhbhatia |
