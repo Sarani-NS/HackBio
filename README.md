@@ -49,6 +49,5 @@ Shoutout to all my fellow intern-mates !
 | 1 | Haseeb Manzoor | https://github.com/haseebmanzur | https://www.linkedin.com/in/haseebmanzoor |
 | 2 | Yetunde Alo Mary | https://github.com/aloyetunde | https://www.linkedin.com/in/yetunde-alo-mary |
 | 3 | Nada ElSayed Ahmed | https://github.com/Nada-EA | https://www.linkedin.com/in/nada-elsayed-ahmed |
-| 4 | Sarani Nativel-Santerne | https://github.com/Sarani-NS | https://www.linkedin.com/in/sarani-nativel-santerne |
-| 5 | Nada ElHadidy |  | https://www.linkedin.com/in/nada-elhadidy |
-| 6 | Merna Salem | https://github.com/MernaSalem | https://www.linkedin.com/in/merna-salem |
+| 4 | Nada ElHadidy |  | https://www.linkedin.com/in/nada-elhadidy |
+| 5 | Merna Salem | https://github.com/MernaSalem | https://www.linkedin.com/in/merna-salem |
