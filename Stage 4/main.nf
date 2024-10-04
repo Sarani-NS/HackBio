@@ -2,112 +2,195 @@
 
 nextflow.enable.dsl=2
 
-params.fastq1 = "$baseDir/data/ERR8774458_1.fastq.gz"
-params.fastq2 = "$baseDir/data/ERR8774458_2.fastq.gz"
-params.reference = "$baseDir/data/Reference.fasta"
+log.info """\
+    N A N O P O R E - NF    P I P E L I N E
+    ========================================
+    fastq paired-end reads        : ${params.reads}
+    reference genome file : ${params.reference}
+    outdir                   : ${params.outdir}
+    """
 
-workflow {
-    // Create channels for input files
-    fastq_files = Channel.from(params.fastq1, params.fastq2)
-    reference = file(params.reference)
+/**
+ * Quality control fastq
+ */
 
-    // Create a directory for FastQC results
-    file("fastqc_results").mkdirs()
+reads_ch = Channel
+    .fromFilePairs( params.reads )
+    .view()
 
-    // FastQC for both files
-    fastqc_results = fastq_files.map { fastqc(it) }
+reference_ch = Channel
+    .fromPath( params.reference )
+    .view()
 
-    // Fastp for quality control and trimming
-    trimmed_files = fastp(params.fastq1, params.fastq2)
-
-    // BWA Index
-    bwa_index(reference)
-
-    // BWA MEM to align reads
-    bam_file = bwa_mem(reference, trimmed_files)
-
-    // Sort the BAM file
-    sorted_bam_file = samtools_sort(bam_file)
-
-    // FreeBayes variant calling
-    freebayes(reference, sorted_bam_file)
-}
-
+    
 process fastqc {
+    container 'quay.io/biocontainers/fastqc:0.11.9--0'
+    
     input:
-    path fastq_file
-
-    output:
-    path "fastqc_results/${fastq_file.baseName}_fastqc.html"
-    path "fastqc_results/${fastq_file.baseName}_fastqc.zip"
-
+    tuple val(sample), path(read) 
+    
     script:
     """
-    fastqc $fastq_file -o fastqc_results/
+    fastqc ${read}
     """
 }
 
 process fastp {
     input:
-    path r1
-    path r2
-
-    output:
-    tuple path('out.R1.fq.gz'), path('out.R2.fq.gz')
+    tuple val(sample), path(reads)
 
     script:
     """
-    fastp -i $r1 -I $r2 -o out.R1.fq.gz -O out.R2.fq.gz
+    fastp -i ${reads[0]} -I ${reads[1]} -o out.R1.fq.gz -O out.R2.fq.gz
     """
 }
 
+/**
+ * Workflow Execution
+ */
+workflow {
+    fastqc(reads_ch)                     // Run FastQC on reads
+    fastp(reads_ch)      // Run Fastp for trimming
+}
+
+
+workflow.onComplete {
+    log.info (workflow.success ? "\n Your job is done :) ! You can check out your files here -> $params.outdir\n" : "Check your documents, the pipeline didn't work :(" )
+}  
+
+
+
+
+
+#!/usr/bin/env nextflow
+
+nextflow.enable.dsl=2
+
+log.info """\
+    N A N O P O R E - NF    P I P E L I N E
+    ========================================
+    fastq paired-end reads        : ${params.reads}
+    reference genome file         : ${params.reference}
+    outdir                        : ${params.outdir}
+    """
+
+/**
+ * Input channels
+ */
+reads_ch = Channel
+    .fromFilePairs( params.reads )
+    .view()
+
+reference_ch = Channel
+    .fromPath( params.reference )
+    .view()
+
+/**
+ * FastQC for quality control
+ */
+process fastqc {
+    container 'quay.io/biocontainers/fastqc:0.11.9--0'
+    
+    input:
+    tuple val(sample), path(reads)
+    
+    script:
+    """
+    fastqc ${reads[0]} ${reads[1]}
+    """
+}
+
+/**
+ * Fastp for quality control and trimming
+ */
+process fastp {
+    input:
+    tuple val(sample), path(reads)
+
+    output:
+    tuple val(sample), path("out.R1.fq.gz"), path("out.R2.fq.gz")
+
+    script:
+    """
+    fastp -i ${reads[0]} -I ${reads[1]} -o out.R1.fq.gz -O out.R2.fq.gz
+    """
+}
+
+/**
+ * BWA index process (index reference genome)
+ */
 process bwa_index {
+    container 'quay.io/biocontainers/bwa:0.7.17--hed695b0_7'
+    
     input:
-    path reference
+    path(reference)
 
+    output:
+    path("${reference}.bwt")
+    
     script:
     """
-    bwa index $reference
+    bwa index ${reference}
     """
 }
 
+/**
+ * BWA mem for read alignment
+ */
 process bwa_mem {
+    container 'quay.io/biocontainers/bwa:0.7.17--hed695b0_7'
+    
     input:
-    path reference
-    tuple path(r1), path(r2)
-
+    tuple val(sample), path(reference)
+    
     output:
-    path 'out.bam'
+    path "out.bam"
 
     script:
     """
-    bwa mem $reference $r1 $r2 | samtools view -b -o out.bam -
+    bwa mem ${reference} ${sample[1]} ${sample[2]} | samtools view -Sb - > out.bam
     """
 }
 
-process samtools_sort {
-    input:
-    path bam_file
-
-    output:
-    path 'out_sorted.bam'
-
-    script:
-    """
-    samtools sort $bam_file -o out_sorted.bam
-    """
-}
-
+/**
+ * FreeBayes for variant calling
+ */
 process freebayes {
+    container 'quay.io/biocontainers/freebayes:1.3.6--hd4865b3_0'
+    
     input:
-    path reference
-    path sorted_bam_file
-
+    path(reference)
+    path "out.bam"
+    
     output:
-    path 'var.vcf'
+    path "var.vcf"
 
     script:
     """
-    freebayes -f $reference $sorted_bam_file > var.vcf
+    freebayes -f ${reference} ${out.bam} > var.vcf
     """
+}
+
+/**
+ * Workflow Execution
+ */
+workflow {
+    // Step 1: Run FastQC
+    fastqc(reads_ch)
+
+    // Step 2: Run Fastp for trimming
+    trimmed_reads = fastp(reads_ch)
+
+    // Step 3: Index the reference genome
+    indexed_reference = bwa_index(reference_ch)
+
+    // Step 4: Run BWA mem for alignment (correctly unpacking trimmed reads)
+    aligned_bam = bwa_mem(trimmed_reads.collect())
+
+    // Step 5: Run FreeBayes for variant calling
+    freebayes(indexed_reference, aligned_bam)
+}
+
+workflow.onComplete {
+    log.info (workflow.success ? "\n Your job is done :) ! You can check out your files here -> $params.outdir\n" : "Check your documents, the pipeline didn't work :(" )
 }
