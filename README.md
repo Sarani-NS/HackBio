@@ -44,9 +44,9 @@ Throughout the internship, I’ve been using Python, R and Bash.
 
 ## Stage 3
 
-**Goal**: Introduce bioinformatics using Bash scripting for a simulated wet-lab biologist, & analyze a WHO dataset about cholera outbreaks, using R.
+**Goal**: Introduce bioinformatics using Bash scripting for a simulated wet-lab biologist, alongside analyzing a WHO dataset about cholera outbreaks, using R.
 
-**Implication**: This phase is about implementing basic bioinformatics tasks using Bash commands, such as handling sequencing data, file navigation, and task automation. The idea is to provide with easy-to-use scripts to analyze sequencing data, such as genome assembly or variant calling. 
+**Implication**: This phase provides foundational bioinformatics tasks with an emphasis on Bash scripting for sequencing data analysis and file navigation. By offering simple, yet powerful, scripts, wet-lab biologists can automate tasks like genome assembly, variant calling, and data preprocessing. The parallel analysis of the cholera outbreak dataset exemplifies the importance of bioinformatics tools in handling global health data. Through this, we demonstrate how key insights from large datasets like cholera outbreaks can inform public health decisions and antimicrobial resistance (AMR) strategies.
 
 ## Stage 4
 
