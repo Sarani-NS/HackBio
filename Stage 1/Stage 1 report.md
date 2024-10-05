@@ -6,7 +6,11 @@
 
 ## Visual Summary
 
-https://www.linkedin.com/posts/haseebmanzoor_hackbio2024-amrincancer-nsclc-activity-7238226331333799936--TRW?utm_source=share&utm_medium=member_desktop
+[Watch Stage 1 Video on GitHub](https://github.com/Sarani-NS/HackBio/blob/main/Stage%201/Stage1_video.mp4)
+
+![image](https://github.com/user-attachments/assets/17938221-d83e-45f0-b94b-ad3f48113478)
+
+[Or on LinkedIn (like, share and repost !)](https://www.linkedin.com/posts/haseebmanzoor_hackbio2024-amrincancer-nsclc-activity-7238226331333799936--TRW?utm_source=share&utm_medium=member_desktop)
 
 ## Crux of the Study
 
