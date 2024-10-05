@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Download files and save them directly to the desired directory
+wget -O /home/sarani_admin/ngs_pipeline/data/ERR8774458_1.fastq.gz "https://zenodo.org/record/10426436/files/ERR8774458_1.fastq.gz"
+wget -O /home/sarani_admin/ngs_pipeline/data/ERR8774458_2.fastq.gz "https://zenodo.org/record/10426436/files/ERR8774458_2.fastq.gz"
+wget -O /home/sarani_admin/ngs_pipeline/data/Reference.fasta "https://zenodo.org/records/10886725/files/Reference.fasta" 
+
 # Define parameters
 READ1="/home/sarani_admin/ngs_pipeline/data/ERR8774458_1.fastq.gz"
 READ2="/home/sarani_admin/ngs_pipeline/data/ERR8774458_2.fastq.gz"
