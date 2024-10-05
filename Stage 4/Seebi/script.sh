@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Define parameters
-READ1="/home/sarani_admin/ngs_pipeline/data/ERR8774458_1.fastq.gz"
-READ2="/home/sarani_admin/ngs_pipeline/data/ERR8774458_2.fastq.gz"
-REFERENCE="/home/sarani_admin/ngs_pipeline/data/Reference.fasta"
-OUTDIR="/home/sarani_admin/ngs_pipeline/data"
+READ1="/home/seebi_desktop/NGS_pipeline/Data/ERR8774458_1.fastq.gz"
+READ2="/home/seebi_desktop/NGS_pipeline/Data/ERR8774458_2.fastq.gz"
+REFERENCE="/home/seebi_desktop/NGS_pipeline/Data/Reference.fasta"
+OUTDIR="/home/seebi_desktop/NGS_pipeline/Data"
 
 # Step 1: FastQC for quality control
 echo "Running FastQC..."
