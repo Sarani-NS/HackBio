@@ -1,4 +1,4 @@
-### Drug Resistance in Cancer Treatment
+# Drug Resistance in Cancer Treatment
 
 Nowadays, several treatment options can be proposed to a patient diagnosed with cancer. These treatments can, in some cases, eradicate tumors in patients whose cancer has already metastased. However, for many, treatments stop working. This is known as drug resistance, where cancer cells end up resisting the effects of drugs used for treatment.
 
@@ -12,8 +12,10 @@ Some researchers decided to see cancer resistance as an “engineering problem�
 
 In conclusion, drug resistance in cancer represents a burden in the effective management of the disease, causing the patient’s quality of life diminish as the cancer grows more difficult to treat. Understanding the mechanisms causing drug resistance in cancerous cells is therefore needed in order to develop strategies to counteract it and offer an effective treatment to patients.
 
-**Sources:**
+---
 
-https://www.nature.com/articles/nrc3599
+# References
 
-https://www.nature.com/articles/s41586-019-1730-1
+Holohan, C., Van Schaeybroeck, S., Longley, D. et al. Cancer drug resistance: an evolving paradigm. Nat Rev Cancer 13, 714–726 (2013). https://doi.org/10.1038/nrc3599
+
+Vasan, N., Baselga, J. & Hyman, D.M. A view on drug resistance in cancer. Nature 575, 299–309 (2019). https://doi.org/10.1038/s41586-019-1730-1
