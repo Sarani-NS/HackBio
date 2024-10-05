@@ -28,11 +28,15 @@ Throughout the internship, I’ve been using Python, R and Bash.
 
 **Goal**: Write an essay (400 words) on Antimicrobial Resistance (AMR) in cancer using references. 
 
+![image](https://github.com/user-attachments/assets/277c254d-3c15-4749-aa35-764def629bda)
+
 **Implication**: This step involves understanding the intersection between cancer treatment and AMR, where resistance to antibiotics affects treatment outcomes, particularly in cancer patients. For example, AMR in gut microbiomes can influence immunotherapy efficiency. This stage focuses on research synthesis and scientific communication, explaining the challenges of managing infections in cancer patients while balancing antibiotic use.
 
 ## Stage 1
 
 **Goal**: Analyze the paper "Gut Resistome of NSCLC Patients Treated with Immunotherapy" & make a short video about it. 
+
+![image](https://github.com/user-attachments/assets/0c533813-57ce-4adb-9e67-ed666921d8d4)
 
 **Implication**: The purpose here is to understand how gut microbiomes contribute to AMR in cancer treatments, particularly for non-small cell lung cancer (NSCLC) patients using immunotherapy. The task helps highlight how AMR genes can reduce the effectiveness of cancer treatments, providing insights into future personalized cancer therapies by managing resistance factors in the gut microbiome. Collaborative team engagement and research presentation are crucial here.
 
@@ -40,17 +44,23 @@ Throughout the internship, I’ve been using Python, R and Bash.
 
 **Goal**: Download and clean the AMR Products Dataset, perform statistical analysis, visualize data, and generate key insights about AMR trends. 
 
+![image](https://github.com/user-attachments/assets/dd82ffe7-16c1-447e-b14f-889c4c7c2de1)
+
 **Implication**: The task is aimed at developing data analysis skills by cleaning, processing, and interpreting an AMR dataset. By visualizing trends in AMR product development, it’s possible to identify promising drug candidates and understand AMR dynamics in different regions. This stage focuses on technical skills in data science (e.g., using Python or R), and critical thinking to extract insights that can influence public health strategies.
 
 ## Stage 3
 
 **Goal**: Introduce bioinformatics using Bash scripting for a simulated wet-lab biologist, alongside analyzing a WHO dataset about cholera outbreaks, using R.
 
+![image](https://github.com/user-attachments/assets/782d6f13-e8ad-4220-b91f-94bd22d52634)
+
 **Implication**: This phase provides foundational bioinformatics tasks with an emphasis on Bash scripting for sequencing data analysis and file navigation. By offering simple, yet powerful, scripts, wet-lab biologists can automate tasks like genome assembly, variant calling, and data preprocessing. The parallel analysis of the cholera outbreak dataset exemplifies the importance of bioinformatics tools in handling global health data. Through this, we demonstrate how key insights from large datasets like cholera outbreaks can inform public health decisions and antimicrobial resistance (AMR) strategies.
 
 ## Stage 4
 
 **Goal**: Build an NGS analysis pipeline using bash or another workflow manager (e.g., Nextflow, Snakemake) for real datasets. 
+
+![image](https://github.com/user-attachments/assets/f679545c-44a7-4331-8cfd-036197ee032b)
 
 **Implication**: This final stage integrates various bioinformatics tools (FastQC, FastP, BWA, FreeBayes) into a cohesive pipeline for NGS data analysis. By running tasks like quality control, trimming, genome alignment, and variant calling in an automated fashion, it provides a reproducible framework for researchers to analyze multiple datasets. This step demonstrates technical proficiency in building scalable and efficient pipelines for genomics research.
 
