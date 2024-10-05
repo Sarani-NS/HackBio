@@ -20,14 +20,14 @@ Variant Calling (FreeBayes): Identify variants (SNPs and indels) from the aligne
 
 ### Requirements
 
-For this pipeline, you need the following tools. 
+For this pipeline, you will need the following tools:
 
-fastqc
-fastp
-bwa
-samtools
-bcftools
-freebayes
+- fastqc
+- fastp
+- bwa
+- samtools
+- bcftools
+- freebayes
 
 Install them with setup.sh:
 
