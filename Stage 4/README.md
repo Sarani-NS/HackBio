@@ -8,15 +8,15 @@ This pipeline is designed to process Next-Generation Sequencing (NGS) data, perf
 
 ## Pipeline Overview
 
-Data Download (wget): Downloads the paired-end reads & the reference genome files in the precised directory.
+**Data Download (wget)**: Downloads the paired-end reads & the reference genome files in the precised directory.
 
-Quality Control (FastQC): Assess the quality of raw reads.
+**Quality Control (FastQC)**: Assess the quality of raw reads.
 
-Trimming (FastP): Trim low-quality bases and adapters from the reads.
+**Trimming (FastP)**: Trim low-quality bases and adapters from the reads.
 
-Genome Mapping (BWA): Align the trimmed reads to the reference genome.
+**Genome Mapping (BWA)**: Align the trimmed reads to the reference genome.
 
-Variant Calling (FreeBayes): Identify variants (SNPs and indels) from the aligned reads.
+**Variant Calling (FreeBayes)**: Identify variants (SNPs and indels) from the aligned reads.
 
 ### Requirements
 
@@ -46,13 +46,19 @@ bash script.sh
 After running the pipeline, you will get the following files of interest:
 
 **The downloaded data**
+
 *Forward reads*: ERR8774458_1.fastq.gz
+
 *Reverse reads*: ERR8774458_2.fastq.gz
+
 *Reference genome*: Reference.fasta
 
 **The output**
+
 *out_R1.fq.gz, out_R2.fq.gz*: Trimmed paired-end reads
+
 *out.bam*: Aligned reads in BAM format
+
 *var.vcf*: Variant call format (VCF) file with identified variants
 
 ---
