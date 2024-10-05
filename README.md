@@ -36,7 +36,7 @@ Throughout the internship, I’ve been using Python, R and Bash.
 
 **Goal**: Analyze the paper "Gut Resistome of NSCLC Patients Treated with Immunotherapy" & make a short video about it. 
 
-![image](https://github.com/user-attachments/assets/0c533813-57ce-4adb-9e67-ed666921d8d4)
+![image](https://github.com/user-attachments/assets/24945a68-efd7-4d86-81b4-af24f2957c84)
 
 **Implication**: The purpose here is to understand how gut microbiomes contribute to AMR in cancer treatments, particularly for non-small cell lung cancer (NSCLC) patients using immunotherapy. The task helps highlight how AMR genes can reduce the effectiveness of cancer treatments, providing insights into future personalized cancer therapies by managing resistance factors in the gut microbiome. Collaborative team engagement and research presentation are crucial here.
 
