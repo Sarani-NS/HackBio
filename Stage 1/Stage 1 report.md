@@ -31,4 +31,4 @@ Despite its valuable findings, the study's small sample size (30 patients) and l
 | 1 | Haseeb Manzoor | https://github.com/haseebmanzur | https://www.linkedin.com/in/haseebmanzoor |
 | 2 | Yetunde Alo Mary | https://github.com/aloyetunde | https://www.linkedin.com/in/yetunde-alo-mary |
 | 3 | Sarani Nativel-Santerne | https://github.com/Sarani-NS | https://www.linkedin.com/in/sarani-nativel-santerne |
-| 4 | Nada ElHadidy |  | https://www.linkedin.com/in/nada-elhadidy |
+| 4 | Nada ElHadidy | https://github.com/nada-elhadidy | https://www.linkedin.com/in/nada-elhadidy |
