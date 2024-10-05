@@ -58,6 +58,14 @@ Throughout the internship, I’ve been using Python, R and Bash.
 
 # Take-home message
 
+The HackBio Internship 2024 provided me a unique opportunity to develop bioinformatics skills by dealing with real-world data related to AMR in cancer and cholera outbreaks. Through collaborative projects, I gained hands-on experience in using bioinformatics tools such as Python, R, and Bash scripting to analyze complex datasets and build automated workflows. 
+
+This experience has been unlike any other course I’ve taken, primarily due to the level of autonomy we had. While our mentors were available for support when needed, they didn’t hand us any code—just project guidelines—and that was fantastic. 
+
+At first, starting an analysis from scratch felt intimidating, especially after being used to highly guided projects where everything was essentially "spoon-fed." But now, working with real datasets feels much more approachable, and I’m incredibly grateful for that growth. Keep an eye out for new projects popping up on my GitHub!
+
+For those interested, HackBio will open another round of applications next year. Be sure to follow them on LinkedIn and take advantage of this incredible learning experience !
+
 ---
 
 # Contributors
